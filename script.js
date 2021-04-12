@@ -4,12 +4,13 @@ let empty_list_button = document.getElementById("empty-button");
 let todo_text_box = document.getElementById("todo-entry-box");
 let todo_list = document.getElementById("todo-list");
 let error_message = document.getElementById("error-message");
+let form = document.getElementById("form");
 
-add_button.addEventListener("click", addItem);
 clear_completed_button.addEventListener("click", clearCompleted);
 empty_list_button.addEventListener("click", emptyList);
+form.addEventListener("submit", addItem);
 
-function addItem() {
+function addItem(event) {
   let task = todo_text_box.value;
   if (task.length > 0)
   {
@@ -20,6 +21,8 @@ function addItem() {
   {
     error_message.innerHTML = "Write a To-do!";
   }
+  event.preventDefault();
+  form.reset();
 }
 
 function clearCompleted() {

@@ -68,6 +68,7 @@ function toggleToDoItemState()
   {
     this.classList.add("completed");
   }
+  saveList();
 }
 
 function saveList() {
